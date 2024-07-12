@@ -13,3 +13,43 @@ docker run -d --name fastapi_template_container -p 8000:8000 fastapi-template
 
 alembic revision --autogenerate -m "Initial migration"
 alembic upgrade head
+
+```
+fastapi-template
+├─ .dockerignore
+├─ .gitignore
+├─ Dockerfile
+├─ DockerfilePostgreSQL
+├─ README.md
+├─ alembic
+│  ├─ README
+│  ├─ env.py
+│  ├─ script.py.mako
+│  └─ versions
+├─ alembic.ini
+├─ app
+│  ├─ api
+│  │  ├─ dependencies.py
+│  │  └─ v1
+│  │     ├─ auth.py
+│  │     └─ users.py
+│  ├─ core
+│  │  └─ config.py
+│  ├─ db
+│  │  ├─ base.py
+│  │  ├─ models
+│  │  │  └─ user.py
+│  │  └─ session.py
+│  ├─ main.py
+│  ├─ schemas
+│  │  ├─ token.py
+│  │  └─ user.py
+│  └─ services
+│     ├─ auth.py
+│     └─ user.py
+├─ requirements.txt
+└─ tests
+   ├─ test_auth.py
+   └─ test_users.py
+
+```

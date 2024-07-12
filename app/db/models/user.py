@@ -1,3 +1,5 @@
+# app/db/models/user.py
+
 from sqlalchemy import Column, Integer, String, Boolean
 from app.db.base import Base
 
