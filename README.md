@@ -19,6 +19,7 @@ docker run --name fastapi-template-databasecontainer -d -p 5432:5432 fastapi_tem
 docker build -t fastapi-template .
 docker run -d --name fastapi_template_container -p 8000:8000 fastapi-template
 
+python script/remove_pycache.py
 
 
 
@@ -27,6 +28,17 @@ docker run -d --name fastapi_template_container -p 8000:8000 fastapi-template
 fastapi-template
 ├─ .dockerignore
 ├─ .gitignore
+├─ .pytest_cache
+│  ├─ .gitignore
+│  ├─ CACHEDIR.TAG
+│  ├─ README.md
+│  └─ v
+│     └─ cache
+│        ├─ lastfailed
+│        ├─ nodeids
+│        └─ stepwise
+├─ .vscode
+│  └─ launch.json
 ├─ Dockerfile
 ├─ DockerfilePostgreSQL
 ├─ README.md
@@ -35,7 +47,7 @@ fastapi-template
 │  ├─ env.py
 │  ├─ script.py.mako
 │  └─ versions
-│     └─ 89735fa60aa0_initial_migration.py
+│     └─ 104bf085f88c_initial_migration.py
 ├─ alembic.ini
 ├─ app
 │  ├─ api
@@ -45,6 +57,7 @@ fastapi-template
 │  │     └─ users.py
 │  ├─ core
 │  │  ├─ config.py
+│  │  ├─ constants.py
 │  │  ├─ dependencies.py
 │  │  ├─ events.py
 │  │  ├─ exceptions.py
@@ -59,8 +72,10 @@ fastapi-template
 │  │  └─ session.py
 │  ├─ main.py
 │  ├─ repositories
+│  │  ├─ content.py
 │  │  └─ user.py
 │  ├─ schemas
+│  │  ├─ auth.py
 │  │  ├─ content.py
 │  │  ├─ token.py
 │  │  └─ user.py
@@ -69,6 +84,8 @@ fastapi-template
 │     ├─ content.py
 │     └─ user.py
 ├─ requirements.txt
+├─ script
+│  └─ remove_pycache.py
 └─ tests
    ├─ conftest.py
    ├─ test_auth.py
