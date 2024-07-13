@@ -28,8 +28,13 @@ def update_user(db: Session, user_id: int, user_update: UserUpdate):
     if not db_user:
         return None
     if user_update.password:
-        user_update.hashed_password = get_password_hash(user_update.password)
-    return user_repo.update_user(db, db_user, user_update)
+        hashed_password = get_password_hash(user_update.password)
+        db_user.hashed_password = hashed_password
+    if user_update.email:
+        db_user.email = user_update.email
+    db.commit()
+    db.refresh(db_user)
+    return db_user
 
 def delete_user(db: Session, user_id: int):
     return user_repo.delete_user(db, user_id)
