@@ -16,5 +16,5 @@ def authenticate_user(db: Session, form_data: OAuth2PasswordRequestForm) -> Auth
             detail=AuthMessages.INVALID_CREDENTIALS,
             headers={"WWW-Authenticate": "Bearer"},
         )
-    access_token = create_access_token(data={"user_id": user.email})
+    access_token = create_access_token(data={"user_id": user.id})
     return AuthTokenResponse(access_token=access_token, token_type="bearer")
