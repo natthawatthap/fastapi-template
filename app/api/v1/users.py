@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from typing import List
 from app.schemas.user import User, UserCreate
 from app.services.user import create_user, get_users, get_user
-from app.api.dependencies import get_db
+from app.core.dependencies import get_db
 
 router = APIRouter()
 

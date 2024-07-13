@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from app.schemas.content import Content, ContentCreate
 from app.services.content import create_content, get_contents, get_content
-from app.api.dependencies import get_db, get_current_user
+from app.core.dependencies import get_db, get_current_user
 from app.schemas.user import User
 
 router = APIRouter()
