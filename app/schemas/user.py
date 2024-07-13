@@ -1,17 +1,20 @@
-# app/schemas/user.py
-
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 class UserBase(BaseModel):
-    email: str
+    email: EmailStr
+    is_active: bool = True
+    is_superuser: bool = False
 
 class UserCreate(UserBase):
     password: str
 
-class User(UserBase):
-    id: int
-    is_active: bool
-    is_superuser: bool
+class UserUpdate(UserBase):
+    password: str = None
 
+class UserInDBBase(UserBase):
+    id: int
     class Config:
-        from_attributes = True
+        orm_mode = True
+
+class User(UserInDBBase):
+    pass

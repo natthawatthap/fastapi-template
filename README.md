@@ -23,7 +23,6 @@ docker run -d --name fastapi_template_container -p 8000:8000 fastapi-template
 
 
 
-
 ```
 fastapi-template
 ├─ .dockerignore
@@ -40,13 +39,17 @@ fastapi-template
 ├─ alembic.ini
 ├─ app
 │  ├─ api
-│  │  ├─ dependencies.py
 │  │  └─ v1
 │  │     ├─ auth.py
 │  │     ├─ content.py
 │  │     └─ users.py
 │  ├─ core
 │  │  ├─ config.py
+│  │  ├─ dependencies.py
+│  │  ├─ events.py
+│  │  ├─ exceptions.py
+│  │  ├─ middleware.py
+│  │  ├─ security.py
 │  │  └─ settings.py
 │  ├─ db
 │  │  ├─ base.py
@@ -55,6 +58,8 @@ fastapi-template
 │  │  │  └─ user.py
 │  │  └─ session.py
 │  ├─ main.py
+│  ├─ repositories
+│  │  └─ user.py
 │  ├─ schemas
 │  │  ├─ content.py
 │  │  ├─ token.py
@@ -65,7 +70,11 @@ fastapi-template
 │     └─ user.py
 ├─ requirements.txt
 └─ tests
+   ├─ conftest.py
    ├─ test_auth.py
+   ├─ test_content.py
+   ├─ test_repositories.py
+   ├─ test_services.py
    └─ test_users.py
 
 ```
