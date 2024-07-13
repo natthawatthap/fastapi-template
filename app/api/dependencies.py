@@ -7,7 +7,7 @@ from app.core.config import settings
 from app.db.models.user import User
 from app.schemas.token import TokenData
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/v1/auth/token")
 
 def get_db():
     db = SessionLocal()
