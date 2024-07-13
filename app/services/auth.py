@@ -2,6 +2,7 @@
 
 from datetime import datetime, timedelta
 from typing import Optional
+from fastapi import HTTPException, status
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
