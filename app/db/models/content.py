@@ -6,8 +6,8 @@ class Content(Base):
     __tablename__ = "contents"
 
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String, index=True, nullable=False)
-    body = Column(Text, nullable=False)
+    title = Column(String, index=True)
+    description = Column(Text, nullable=True)
     owner_id = Column(Integer, ForeignKey("users.id"))
 
     owner = relationship("User", back_populates="contents")

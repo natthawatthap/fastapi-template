@@ -2,14 +2,20 @@ from pydantic import BaseModel
 
 class ContentBase(BaseModel):
     title: str
-    body: str
+    description: str = None
 
 class ContentCreate(ContentBase):
     pass
 
-class Content(ContentBase):
+class ContentUpdate(ContentBase):
+    pass
+
+class ContentInDBBase(ContentBase):
     id: int
     owner_id: int
 
     class Config:
         from_attributes = True
+
+class Content(ContentInDBBase):
+    pass
