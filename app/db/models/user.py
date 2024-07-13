@@ -1,6 +1,5 @@
-# app/db/models/user.py
-
 from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy.orm import relationship
 from app.db.base import Base
 
 class User(Base):
@@ -11,3 +10,5 @@ class User(Base):
     hashed_password = Column(String, nullable=False)
     is_active = Column(Boolean, default=True)
     is_superuser = Column(Boolean, default=False)
+
+    contents = relationship("Content", back_populates="owner")

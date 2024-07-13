@@ -1,8 +1,7 @@
 import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
-from app.api.v1 import auth, users
+from app.api.v1 import users, auth, content
 
 # Set up logging
 logging.basicConfig(
@@ -41,6 +40,7 @@ app.add_middleware(
 
 app.include_router(users.router, prefix="/api/v1/users", tags=["users"])
 app.include_router(auth.router, prefix="/api/v1/auth", tags=["auth"])
+app.include_router(content.router, prefix="/api/v1/contents", tags=["contents"])
 
 @app.get("/")
 async def root():
